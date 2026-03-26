@@ -44,6 +44,18 @@ Reviews the `git diff` for a completed task against its Task Brief. Outputs only
 
 Identical review mandate to `@code-reviewer`, using a Claude-based model. Both reviewers must approve before a task is considered complete. The dual-reviewer setup with different model families provides independent signal on every change.
 
+### `git-guy`
+
+**Mode:** subagent | **Model:** claude-sonnet-4.6
+
+Handles all git housekeeping at the end of an implementation cycle. Inspects pending working-tree changes, groups them into logical commits when changes span independent concerns, pushes to the remote, and opens a pull request. Discovers and populates any existing PR template (`.github/PULL_REQUEST_TEMPLATE.md` and variants); falls back to a composed description when none is found. Uses the GitHub CLI (`gh`) when available, otherwise prints a ready-to-open URL with the composed title and body for manual submission. Does not modify source files or force-push.
+
+### `test-runner`
+
+**Mode:** subagent | **Model:** claude-sonnet-4.6
+
+Discovers and executes all quality checks configured in the repository — pre-commit hooks, linters, type checkers, and test suites. Determines the right commands from config files (`.pre-commit-config.yaml`, `Makefile`, `pyproject.toml`, `package.json`, etc.) without guessing, preferring a single aggregator command when one exists. Reports a structured pass/fail result for each check and an overall verdict. Called by `@developer` and `@junior-developer` before they report completion, and optionally by `@code-reviewer` and `@code-reviewerer` to verify validation claims. Does not modify source files or install dependencies.
+
 ### `repo-scout`
 
 **Mode:** subagent | **Model:** claude-sonnet-4.6
