@@ -29,7 +29,7 @@ How to scan (fast and reliable)
    - Rust: `Cargo.toml`
    - Go: `go.mod`
    - Java or Kotlin: `build.gradle*`, `pom.xml`
-   - .NET: `*.csproj`, `*.sln`
+   - .NET: `*.csproj`, `*.sln`, `.slnx`
    - Ruby: `Gemfile`
    - PHP: `composer.json`
    - Terraform: `*.tf`, `terraform.tfstate*`
@@ -41,6 +41,7 @@ How to scan (fast and reliable)
    - Task runners: `justfile`, `Taskfile.yml`, `tox.ini`, `noxfile.py`, `hatch.toml`
    - Node.js scripts: `package.json` scripts (`lint`, `test`, `typecheck`, `format`, `check`)
    - Python tools: `pyproject.toml` for `ruff`, `black`, `isort`, `mypy`, `pyright`, `pytest`
+   - .NET tools: `dotnet format`
 4) Infer conventions and “do and don’t” patterns by sampling code.
    - Use `rg` to find strong signals, then open a small number of files:
      - dependency injection: `inject`, `container`, `provider`, `Depends`, `Inversify`, `tsyringe`

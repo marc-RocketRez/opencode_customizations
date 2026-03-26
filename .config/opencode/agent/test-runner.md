@@ -60,8 +60,9 @@ Scan the repository to identify which checks are configured. Work through this l
    - `staticcheck ./...` (only if `staticcheck` is in the repo or toolchain config)
 
    .NET:
-   - `dotnet build` (evidence: `*.csproj`, `*.sln`, `*.slnx`)
-   - `dotnet test`
+   - Format: `dotnet format`
+   - Build: `dotnet build` (evidence: `*.csproj`, `*.sln`, `*.slnx`)
+   - Test: `dotnet test`
 
    Ruby:
    - `bundle exec rubocop` (evidence: `.rubocop.yml`, `Gemfile`)
