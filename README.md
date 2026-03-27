@@ -46,9 +46,9 @@ Identical review mandate to `@code-reviewer`, using a Claude-based model. Both r
 
 ### `git-guy`
 
-**Mode:** subagent | **Model:** claude-sonnet-4.6
+**Mode:** subagent | **Model:** claude-haiku-4.5
 
-Handles all git housekeeping at the end of an implementation cycle. Inspects pending working-tree changes, groups them into logical commits when changes span independent concerns, pushes to the remote, and opens a pull request. Discovers and populates any existing PR template (`.github/PULL_REQUEST_TEMPLATE.md` and variants); falls back to a composed description when none is found. Uses the GitHub CLI (`gh`) when available, otherwise prints a ready-to-open URL with the composed title and body for manual submission. Does not modify source files or force-push.
+Handles git operations in two modes. In **summary mode**, produces a terse diff summary with risk hotspots for quick orientation on a change set. In **full mode**, handles all git housekeeping at the end of an implementation cycle: inspects pending working-tree changes, groups them into logical commits when changes span independent concerns, pushes to the remote, and opens a pull request. Discovers and populates any existing PR template (`.github/PULL_REQUEST_TEMPLATE.md` and variants); falls back to a composed description when none is found. Uses the GitHub CLI (`gh`) when available, otherwise prints a ready-to-open URL with the composed title and body for manual submission. Does not modify source files or force-push.
 
 ### `test-runner`
 
